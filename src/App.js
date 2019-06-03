@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios';
-import {Edamam} from './Edamam.js';
-import { thisTypeAnnotation } from '@babel/types';
+import SingleRecipe from './SingleRecipe.js';
+
+
 
 class APP extends Component {
   constructor() {
@@ -22,9 +23,11 @@ class APP extends Component {
     console.log(this.state.userInput)
   }
 
+  
   // Create an event listener for user input
   handleClick = (event) => {
     event.preventDefault();
+    
 
     const api_id = "5ad9a9d2";
     const api_key = "399ab75c6d5b4547cd58b52f7a7d73fd";
@@ -42,76 +45,67 @@ class APP extends Component {
         health: "vegan",
         healthLabels: "vegetarian",
         recipe: "recipe",
-        
-      }
+      } 
     }).then(response => {
-      response = response.data.hits
-      console.log(response);
+        response = response.data.hits
+        console.log(response);
 
-      // the following setState will empty out the input field after each search - set this after your values are being caught
       this.setState({
         Recipes: response
       })
-
     })
-
+    
+    // this.document.getElementsByClassName("flexContainer").scrollIntoView({
+    //   behavior: "smooth"
+    // });
+    
   }
 
 
   render(){
     return (
-      <div className="App"
-      tabIndex = "-1">
-        <h1>Vegan Recipes Generator</h1>
-        <form action="">
-          <input 
-          type = "text"
-          name = "search"
-          value = {this.state.value}
-          placeholder = "Search by name or ingredient"
-          onChange = {this.handleChange}
-          />
-          <button onClick = {this.handleClick}>Search</button>
-        </form>
+      <div className="App">
+      <header className="app-header">
+        <div className="header-content">
+          <h1>Abbiocco</h1>
+          <h4>A Vegan & Vegetarian Recipe Generator</h4>
+          <form action="" className="header-form">
+            <input 
+            type = "text"
+            name = "search"
+            value = {this.state.value}
+            placeholder = "Search for your Vegan or Vegetarian Recipe"
+            onChange = {this.handleChange}
+            />
+            
+            <button onClick ={this.handleClick}> Search &#128269; </button>
+          </form>
+        </div>
+      </header> 
       
 
-        {/* <ul>
-          <li>
-            <h2>{this.state.userInput.recipe.ingredients.label}</h2>
-          </li>
-        </ul> */}
-
-      
+        <div className="flexContainer">
           {this.state.Recipes.map(recipe => {
-            console.log(recipe.recipe)
+            console.log(recipe)
 
 
             return (
-              <li>
-                <h2>{recipe.recipe.label}</h2>
-                <img src={recipe.recipe.image} alt={recipe.recipe.label}/>
-                  <ul>
-                    {recipe.recipe.ingredients.map((ing, i) => {
-                      return <li>{ing.text}</li>              
-                    })}
-                  </ul>
-                <h2>{recipe.recipe.url}</h2>      
-
-                  {/* <ul>  
-                    {recipe.recipe.ingredientLines.map((steps) => {
-                      return <li></li> 
-                    })}
-                  </ul>  */}
-
-                <ul>
-                  {recipe.recipe.healthLabels.map((label, i)=> {
-                    return <li>{label}</li>
-                  })}
-                </ul>                  
-                <h3> Serving Size: {recipe.recipe.yield}</h3>
-              </li>
-            )          
-          })}       
+              <div className = "recipeBook">
+                    <SingleRecipe
+                    title = {recipe.recipe.label}
+                    imgSrc = {recipe.recipe.image} 
+                    link = {recipe.recipe.url}
+                    yield = {recipe.recipe.yield}
+                    ingredients={recipe.recipe.ingredients}
+                    healthLabels = {recipe.recipe.healthLabels}
+                    />
+              </div>
+            
+            )
+            
+            
+          })} 
+        </div>      
         
       </div>
 

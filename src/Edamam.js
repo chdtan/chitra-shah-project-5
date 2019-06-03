@@ -12,21 +12,21 @@
 
 
 
-//     axios ({
-//         method: 'GET',
-//         url: url,
-//         dataResponse: 'json',
-//         params: {
-//             q: (this.state.UserInput),
-//             api_id: api_id,
-//             api_key: api_key,
-//             Health: 'Vegan',   
-//             count: 5,
-//             recipe: recipe,          
-//         }
-//     }).then(response => {
-//         console.log(response);
-//     })
+    // axios ({
+    //     method: 'GET',
+    //     url: url,
+    //     dataResponse: 'json',
+    //     params: {
+    //         q: (this.state.UserInput),
+    //         api_id: api_id,
+    //         api_key: api_key,
+    //         Health: 'Vegan',   
+    //         count: 5,
+    //         recipe: recipe,          
+    //     }
+    // }).then(response => {
+    //     console.log(response);
+    // })
 
 
 // export default Edamam

@@ -1,5 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Pinyon+Script&display=swap');
+
+html {
+  font-size: 125%;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
 .App {
+  font-size: 125%;
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -8,7 +22,11 @@
   pointer-events: none;
 }
 
-.App-header {
+.app-header {
+  border:1px solid black;
+  background-image: url(./assets/markus-spiske-368800-unsplash.jpg);
+  background-position: center center;
+  background-size: cover;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -16,8 +34,92 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: yellow;
+  position: relative;
+}
+
+.App h1 {
+  font-family: 'Pinyon Script',
+  cursive;
+  text-transform: lowercase;
+  color: white;
+  background-color: rgba(0, 0, 0, .4);
+  font-size: 10rem;
+  padding: 15px 25px;
+
+}
+
+.App h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  margin: 0;
+  /* position: absolute;
+  left: 60%;
+  top: 70%; */
+
+}
+
+.header-form {
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  /* position: absolute;
+  margin: 0;
+  top: 10%;
+  left: 26%;
+  right: 50%; */
+  width: 40%;
+  height: 40px;
+  opacity: 0.7;
+  outline: none;
+  border-radius: 7px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2rem;
+  border-radius: 5px 0 0 5px;
+}
+
+button {
+  height: 48px;
+  outline: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  opacity: 0.8;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
   color: white;
 }
+
+.recipeBook {
+  width: calc(50% - 70px);
+  margin: 35px;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.recipeCard {
+  overflow: hidden;
+  border: 1px solid black;
+  flex-wrap: wrap;
+  padding: 0;
+
+}
+
+.recipeCard li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
 
 .App-link {
   color: #61dafb;
@@ -31,3 +133,72 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 992px) {
+  .App h1 {
+    left: 55%;
+  }
+  
+} 
+
+@media (max-width: 680px) {
+  .App h1 {
+    font-size: 8rem;
+  }
+
+  .flexContainer {
+    flex-direction: column;
+  }
+
+  .recipeBook {
+    width: initial;
+  }
+
+}
+
+@media (max-width: 490px) {
+  .App h1 {
+    font-size: 7rem;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .App h1 {
+    font-size: 4rem;
+    left: 25%;
+    top: 71%;
+  }  
+
+  .App h4 {
+    left: 7%;
+    top: 86%;
+  }
+
+  input {
+    top: 63%;
+    left: 21%;
+    right: 50%;
+    width: 64%;
+  }
+
+  button {
+    top: 63%;
+    left: 73%;
+    width: 15%;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+  .App h1 {
+    font-size: 4rem;
+    left: 18%;
+  }
+}  
+
+
+
+  
