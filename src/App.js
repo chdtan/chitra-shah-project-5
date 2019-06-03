@@ -52,12 +52,13 @@ class APP extends Component {
 
       this.setState({
         Recipes: response
+      }, () => {
+        document.getElementById("results").scrollIntoView({
+          behavior: "smooth"
+        })
       })
     })
     
-    // this.document.getElementsByClassName("flexContainer").scrollIntoView({
-    //   behavior: "smooth"
-    // });
     
   }
 
@@ -66,7 +67,7 @@ class APP extends Component {
     return (
       <div className="App">
       <header className="app-header">
-        <div className="header-content">
+        <div className="wrapper-header-content">
           <h1>Abbiocco</h1>
           <h4>A Vegan & Vegetarian Recipe Generator</h4>
           <form action="" className="header-form">
@@ -78,7 +79,7 @@ class APP extends Component {
             onChange = {this.handleChange}
             />
             
-            <button onClick ={this.handleClick}> Search &#128269; </button>
+            <button onClick = {this.handleClick}><i class="fas fa-search"></i></button >
           </form>
         </div>
       </header> 
@@ -90,7 +91,7 @@ class APP extends Component {
 
 
             return (
-              <div className = "recipeBook">
+              <div className = "recipeBook" id="results">
                     <SingleRecipe
                     title = {recipe.recipe.label}
                     imgSrc = {recipe.recipe.image} 
@@ -98,6 +99,7 @@ class APP extends Component {
                     yield = {recipe.recipe.yield}
                     ingredients={recipe.recipe.ingredients}
                     healthLabels = {recipe.recipe.healthLabels}
+                    key = {recipe.recipe.url}
                     />
               </div>
             
